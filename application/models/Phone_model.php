@@ -37,9 +37,36 @@
                 if ($query->num_rows() == 1 ) {
 
                     return $query->row_array();
+
                 } else {
+
                     return false;
+                    
                 }
+            }
+        }
+
+        public function add_new_contact($uid,$name,$number){
+            if($this->db->insert('contacts', array('user_id'=>$uid,'contact_name'=>$name,'contact_number'=>$number))){
+
+                return true;
+
+            } else {
+
+                return false;
+
+            }
+        }
+
+        public function add_new_contact_with_path($uid,$name,$number,$path){
+            if($this->db->insert('contacts', array('user_id'=>$uid,'contact_name'=>$name,'contact_number'=>$number,'image_path'=>$path))){
+
+                return true;
+
+            } else {
+
+                return false;
+
             }
         }
 	}
