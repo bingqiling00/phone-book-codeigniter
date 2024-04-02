@@ -1,20 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
+
 
 html,body {
     font-family: "Nunito Sans", sans-serif;
     font-size:25px;
 }
 
-.center-container{
-    min-width: 500px;
-    width:50%;
-    margin-left:auto;
+.container-wrapper{
+    min-width: 900px;
+    width:70%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;          
+    margin-right: auto;          
+}
+.left-navigation-bar{
+    min-width:230px;
+    height:auto;
+    background: rgb(194, 194, 194);
+}
+.navigation-bar img{
+    margin-bottom: 30px;
+}
+a.navigation-bar-pill{
+    width:calc(100% - 40px);
+    text-align: start;
+    font-weight:bold;
+    font-size:20px;
+    text-decoration: none;
+    padding:10px 20px;
+    color:white;
+}
+a.navigation-bar-pill:hover{
+    background: rgb(140, 140, 140);
+    color:black;
+}
+
+.recent-contact-pills,
+.recent-contact-info{
+    align-items: center;
+    margin:5px 0px;
+}
+
+.recent-contact-pills:hover{
+
+    background: #d7d7d7;
+}
+.recent-contact-container-wrapper{
+    min-height: 430px;
+    padding:15px;
+    position:relative;
+}
+.recent-contact-pills a{
     margin-right:auto;
+}
+
+a.recent-contact-info img{
+    width:70px;
+    height:70px;
+    margin:10px;
+}
+
+a.recent-contact-info p{
+    margin:0px;
+    font-size:15px;
+    font-weight:bold;
+    width:100%;
+    text-align: start;
+}
+
+a.recent-contact-info{
+    text-decoration: none;
+    color:black;
+}
+
+.recent-contact-pills .end-content{
+    min-width:75px;
+}
+
+.recent-contact-pills .end-content a{
+    margin:0px;
+    padding:0px 5px;
+}
+
+.home-title-text p{
+    margin:10px 0px;
+    width:95%;
+    font-size:18px;
+    text-align: end;
+}
+
+.navigation-bar img{
+    margin:30px;
+}
+.center-container{
+    min-width: 600px;
     background: rgb(233, 233, 233);
     height:auto;
     padding:10px;
+    width:50%;
 }
 
+.empty-space{
+height:160px;
+}
 .flex-center-box{
     display: flex;
     justify-content: center;
@@ -38,6 +128,11 @@ html,body {
 }
 .w-100{
     width:100%;
+}
+
+
+.login-form,.register-form{
+    width: calc(100% - 100px);
 }
 
 .home-navigate{
@@ -69,6 +164,9 @@ html,body {
 
 .title-box h2{
     margin:10px 0px;
+    font-style:italic;
+    font-family: "Rakkas", serif;
+
 }
 
 .form-title{
@@ -78,6 +176,8 @@ html,body {
 .add-contact-form{
     width: calc(100% - 50px);
 }
+
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -113,6 +213,10 @@ input::-webkit-inner-spin-button {
     margin:0;
     font-size:15px;
     font-weight:bold;
+}
+
+.alert-success p a {
+    text-decoration: none;
 }
 
 .alert-success img,
@@ -158,4 +262,45 @@ ul.col-flex-center li {
 .error-title{
     align-items: center;
     justify-content: start;
+}
+
+.add-contact-submit-button,
+.login-button,.register-button{
+    margin-top:30px;
+    padding:10px 40px;
+    font-size:20px;
+}
+
+.register-navigate-text{
+    font-size: 18px;
+
+}
+.register-navigate-text a{
+    text-decoration: none;
+    color:blue;
+}
+
+.pagination-link-navigate a,
+.pagination-link-navigate strong{
+    text-decoration: none;
+    font-size: 25px;
+    color:rgb(80, 80, 80);
+    padding:0px 10px;
+}
+
+.pagination-link-navigate strong{
+    color:black;
+}
+.pagination-link-navigate{
+    text-align: center;
+    position:absolute;
+    left:50%;
+}
+
+.pagination-link-navigate {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    text-align: center;
 }

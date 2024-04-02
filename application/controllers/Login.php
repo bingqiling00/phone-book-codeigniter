@@ -2,22 +2,26 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-    public function index()
-    {
-            $this->load->helper(array('form', 'url'));
-            $this->load->model('phone_model');
-            $this->load->library('form_validation');
-            $this->load->library('session');
+        function __construct(){
+                parent::__construct();
+                $this->load->helper('url');
+                $this->load->model('phone_model');
+                $this->load->library('form_validation');
+                $this->load->library('session');
+        }
+        public function index()
+        {
+                $this->load->helper(array('form', 'url'));
 
-            $this->form_validation->set_rules('username', 'Username', 'required');
-            $this->form_validation->set_rules('password', 'Password', 'required');
+                $this->form_validation->set_rules('username', 'Username', 'required');
+                $this->form_validation->set_rules('password', 'Password', 'required');
 
-            if ($this->form_validation->run() == FALSE)
-            {
-                    $this->load->view('login');
-            }
-            else
-            {
+                if ($this->form_validation->run() == FALSE)
+                {
+                        $this->load->view('login');
+                }
+                else
+                {
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
                 if($data = $this->phone_model->user_login($username,$password)){
@@ -26,9 +30,9 @@ class Login extends CI_Controller {
                         redirect('user');
                 }
                 else{
-                        $this->session->set_flashdata('login_failed',TRUE);
+                        $this->session->set_flashdata('invalid_credentials',TRUE);
                         $this->load->view('login');
                 }
-            }
-    }
+                }
+        }
 }

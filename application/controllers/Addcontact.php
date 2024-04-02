@@ -7,17 +7,14 @@ class Addcontact extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('phone_model');
         $this->load->library('session');
+        $this->load->library('form_validation');
 	}
     
     public function index()
     {
-        $this->load->library('session');
-
         if($userdata= $this->session->userdata('user')){
             $this->load->helper(array('form', 'url'));
-            $this->load->model('phone_model');
-            $this->load->library('form_validation');
-    
+
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('number', 'Number', 'required');
             
@@ -30,9 +27,8 @@ class Addcontact extends CI_Controller {
                 $name = $this->input->post('name');
                 $number = $this->input->post('number');
                 $uid = $this->input->post('uid');
-                $image_path = 'uploads/success_icon.png'; // Default empty image path
+                $image_path = 'uploads/blank-profile-pic.png'; // Default empty image path
     
-
                 if(!empty($_FILES['image']['name'])){
                     $config['upload_path']          = './uploads/';
                     $config['allowed_types']        = 'jpeg|jpg|png';
@@ -55,11 +51,12 @@ class Addcontact extends CI_Controller {
                 }
 
                 
-                if($this->phone_model->add_new_contact($uid,$name,$number)){
+                if($this->phone_model->add_new_contact($uid,$name,$number,$image_path)){
                     $this->session->set_flashdata('display_success', true);
                     redirect('addcontact');
                 }
                 else{
+                    //problem occured during insert from model
                     $this->session->set_flashdata('database_model_failure', true);
                     redirect('addcontact');
                 } 

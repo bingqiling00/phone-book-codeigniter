@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Home page</title>
+    <title>Contact list</title>
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
 </head>
 
@@ -21,10 +21,15 @@
                 <h2 class="w-100">Phone-Book</h2>
             </div>
             <div class="flex-center-box welcome-text">
-                <p>Welcome back, <?php echo $userdata['username'] ?></p>
+                <p>Contact list</p>
             </div>
             <div class="flex-center-box home-title-text">
-                <p>Most Recent Contact</p>
+                <p>Sort By :
+                    <select id="sort-select-contactlist" disabled>
+                        <option value="da-sort" selected>Date Added</option>
+                        <option value="name-sort">Name</option>
+                    </select>
+                </p>
             </div>
 
             <div class="recent-contact-container-wrapper">
@@ -44,18 +49,18 @@
                         </div>
                     </div> -->
                 <?php 
-                    if($recent_record){
-                        foreach($recent_record as $record){
+                    if($contacts){
+                        foreach($contacts as $contact){
                             //echo $record->contact_name. $record->contact_number . "<br>";
 
                             echo
                             "
                             <div class=\"flex-center-box w-100 recent-contact-pills\">
                                 <a href=\"\" class=\"flex-center-box recent-contact-info\">
-                                    <img src=\"".base_url($record->image_path)."\" alt=\"\">
+                                    <img src=\"".base_url($contact->image_path)."\" alt=\"\">
                                     <div class=\"col-flex-center\">
-                                        <p>".$record->contact_name."</p>
-                                        <p>".$record->contact_number."</p>
+                                        <p>".$contact->contact_name."</p>
+                                        <p>".$contact->contact_number."</p>
                                     </div>
                                 </a>
                                 <div class=\"end-content flex-center-box\">
@@ -79,6 +84,7 @@
                     }
 
                 ?>
+                <p class="pagination-link-navigate"><?php echo $links; ?></p>
             </div>
         </div>
     </div>

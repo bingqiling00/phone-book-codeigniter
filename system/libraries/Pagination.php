@@ -523,7 +523,17 @@ class CI_Pagination {
 		}
 
 		// If something isn't quite right, back to the default base page.
-		if ( ! ctype_digit($this->cur_page) OR ($this->use_page_numbers && (int) $this->cur_page === 0))
+		//Changes made here to avoid 
+		
+		// 		A PHP Error was encountered
+		// Severity: 8192
+
+		// Message: ctype_digit(): Argument of type null will be interpreted as string in the future
+
+		// Filename: libraries/Pagination.php
+
+		// Line Number: 526
+		if ( ! ctype_digit((string)$this->cur_page) OR ($this->use_page_numbers && (int) $this->cur_page === 0))
 		{
 			$this->cur_page = $base_page;
 		}

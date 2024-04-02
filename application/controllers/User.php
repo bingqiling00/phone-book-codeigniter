@@ -6,19 +6,20 @@ class User extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('phone_model');
-	}
-    public function index(){
         $this->load->library('session');
-
+	}
+    public function index()
+    {
         if($userdata= $this->session->userdata('user')){
-            $this->load->view('home' , array('userdata'=>$userdata));
+            $recent_contact = $this->phone_model->get_three_contact($userdata['id']);
+            $this->load->view('home' , array('userdata'=>$userdata, 'recent_record'=>$recent_contact));
         }
         else{
             redirect('login');
         }
     }
+
     public function logout(){
-        $this->load->library('session');
         $this->session->unset_userdata('user');
         redirect('/');// back to root( base_url() ) 
     }
