@@ -1,5 +1,6 @@
-###Phone Book System
-
+========================
+Phone Book System
+========================
 This program designed to provide quick access to contact information such as create, insert, and delete function. The system are built with codeIgniter version 3 and run without error with PHP 8.2.12 and utilized Model-View-Controller (MVC) architecture by offering structured solution in managing functions.
 
 ##How to install

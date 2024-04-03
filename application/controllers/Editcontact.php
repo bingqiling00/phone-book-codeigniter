@@ -19,7 +19,7 @@ class Editcontact extends CI_Controller {
                 $this->load->view('editcontact', array('contact' => $contact ,'userdata'=>$userdata));
             }
             else{
-                //$this->load->view('editcontact'); // display error 404
+                show_404();
             }
         }
         else{
@@ -104,6 +104,7 @@ class Editcontact extends CI_Controller {
                 // NO CHANGES FOUND
                 $this->form_validation->set_message('check_no_changes', 'No changes were made.');
                 return false;
+                exit;
             }
         }
         return true;
