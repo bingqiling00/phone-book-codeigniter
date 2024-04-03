@@ -9,12 +9,12 @@
             $query = $this->db->get_where('users', array('username'=>$username));
             if($query->num_rows() > 0){
                 
-                return false;
+                return false; // its return availability 
 
             }
             else{
 
-                return true;
+                return true; // its return availability 
 
             }
         }

@@ -66,7 +66,7 @@
                                 <div class=\"end-content flex-center-box\">
                                     <a href=\"".base_url("editcontact/".$contact->id)."\"><img src=\"".base_url('uploads/vertical-three.png')."\" alt=\"\"
                                     width=\"30px\"></a>
-                                    <a href=\"\"><img src=\"".base_url('uploads/delete-icon.png')."\" alt=\"\"
+                                    <a href=\"".base_url("deletecontact/".$contact->id)."\"><img src=\"".base_url('uploads/delete-icon.png')."\" alt=\"\"
                                     width=\"30px\"></a>
                                 </div>
                             </div>

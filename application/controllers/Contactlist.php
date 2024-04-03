@@ -9,8 +9,6 @@ class Contactlist extends CI_Controller {
 		$this->load->model('phone_model');
         $this->load->library('session');
         $this->load->library("pagination");
-        $this->load->library('javascript');
-
 	}
     public function index()
     {
