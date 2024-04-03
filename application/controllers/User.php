@@ -5,8 +5,11 @@ class User extends CI_Controller {
     function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+        $this->load->helper('form');
 		$this->load->model('phone_model');
         $this->load->library('session');
+
+
 	}
     public function index()
     {
@@ -23,4 +26,6 @@ class User extends CI_Controller {
         $this->session->unset_userdata('user');
         redirect('/');// back to root( base_url() ) 
     }
+
+
 }

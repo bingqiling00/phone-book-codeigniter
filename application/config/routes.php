@@ -53,3 +53,5 @@ $route['default_controller'] = 'user';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['contactlist/(:num)'] = 'contactlist';
+$route['editcontact/(:any)'] = 'editcontact/index/$1';
+$route['deletecontact/(:any)'] = 'deletecontact/index/$1';

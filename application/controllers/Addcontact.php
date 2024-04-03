@@ -13,8 +13,9 @@ class Addcontact extends CI_Controller {
     public function index()
     {
         if($userdata= $this->session->userdata('user')){
-            $this->load->helper(array('form', 'url'));
 
+            $this->load->helper(array('form', 'url'));
+            
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('number', 'Number', 'required');
             

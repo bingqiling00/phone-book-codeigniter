@@ -9,6 +9,8 @@ class Contactlist extends CI_Controller {
 		$this->load->model('phone_model');
         $this->load->library('session');
         $this->load->library("pagination");
+        $this->load->library('javascript');
+
 	}
     public function index()
     {
@@ -32,6 +34,9 @@ class Contactlist extends CI_Controller {
                 $data['contacts'] = $this->phone_model->get_contact_pagination($userdata['id'],$config["per_page"], $page);
     
                 $this->load->view('contactlist', $data);
+            }
+            else{
+                $this->load->view('contactlist');
             }
 
         }

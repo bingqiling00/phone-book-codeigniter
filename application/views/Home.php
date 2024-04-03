@@ -3,6 +3,8 @@
 <head>
     <title>Home page</title>
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
+    <!-- Message: Creation of dynamic property CI_Javascript::$CI is deprecated -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -59,9 +61,9 @@
                                     </div>
                                 </a>
                                 <div class=\"end-content flex-center-box\">
-                                    <a href=\"\"><img src=\"".base_url('uploads/vertical-three.png')."\" alt=\"\"
+                                    <a href=\"".base_url("editcontact/".$record->id)."\"><img src=\"".base_url('uploads/vertical-three.png')."\" alt=\"\"
                                     width=\"30px\"></a>
-                                    <a href=\"\"><img src=\"".base_url('uploads/delete-icon.png')."\" alt=\"\"
+                                    <a href=\"".base_url("deletecontact/".$record->id)."\"><img src=\"".base_url('uploads/delete-icon.png')."\" alt=\"\"
                                     width=\"30px\"></a>
                                 </div>
                             </div>
@@ -73,8 +75,6 @@
                         <div class=\"flex-center-box\">
                             <p>No record founded.</p>
                         </div>
-                        
-                        
                         ";
                     }
 

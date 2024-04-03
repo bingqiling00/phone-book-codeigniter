@@ -95,5 +95,57 @@
                 
             }
         }
+
+        public function get_one_contact($uid,$cid){
+            $query = $this->db->get_where('contacts', array('user_id'=>$uid ,'id'=>$cid,'deletion_status'=> false ));
+            if ($query->num_rows() > 0) {
+
+                return $query->row_array();
+
+            } else {
+
+                return false;
+                
+            }
+        }
+
+        public function edit_contact_by_id($uid,$cid,$cname,$cnumber,$cimgpath){
+
+            $where_condition = array('user_id' => $uid, 'id' => $cid, 'deletion_status' => false);
+
+            $update_array = array(
+                'contact_name' => $cname, 
+                'contact_number' => $cnumber, 
+                'image_path' => $cimgpath
+            );
+            
+            $this->db->where($where_condition);
+            $this->db->update('contacts', $update_array);
+            
+            if ($this->db->affected_rows() > 0) {
+
+                return true;
+
+            } else{
+
+                return false;
+                
+            }
+        }
+
+        public function delete_contact($uid, $cid){
+            $where_condition = array('user_id' => $uid, 'id' => $cid);
+            $this->db->where($where_condition);
+            $this->db->update('contacts', array('deletion_status' => true));
+            if ($this->db->affected_rows() > 0) {
+
+                return true;
+
+            } else{
+
+                return false;
+                
+            }
+        }
 	}
 ?>

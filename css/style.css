@@ -173,7 +173,7 @@ height:160px;
     margin:10px 0px;
 }
 
-.add-contact-form{
+.add-contact-form,.edit-contact-form,.delete-contact-form{
     width: calc(100% - 50px);
 }
 
@@ -265,6 +265,7 @@ ul.col-flex-center li {
 }
 
 .add-contact-submit-button,
+.edit-contact-submit-button,
 .login-button,.register-button{
     margin-top:30px;
     padding:10px 40px;
@@ -303,4 +304,120 @@ ul.col-flex-center li {
     transform: translateX(-50%);
     bottom: 0;
     text-align: center;
+}
+
+.edit-contact-img{
+    width:130px;
+}
+.edit-contact-img-container{
+    text-align: center;
+    padding-top:20px;
+}
+
+.file-type-label{
+    margin:0;
+    font-size: 14px; 
+    font-weight:bold;
+    font-style:italic;
+}
+
+.delete-contact-button{
+    border:none;
+    background: none;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    min-width:920px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+  /* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #b85c5c;
+    color: white;
+}
+.modal-header h2{
+    font-size:25px;
+
+}
+.modal-body {
+    padding: 2px 16px;
+}
+.modal-body p{
+    font-size:20px;
+}
+.modal-footer{
+    display:flex;
+    justify-content: end;
+    padding:5px 0px 25px;
+}
+.modal-footer button{
+    margin-right:20px;
+    padding:10px 30px;
+}
+.delete-button-modal{
+    background: #ED5E68;
+    border:none;
+    border-radius:5px;
+    color:white;
+    cursor: pointer;
+}
+.cancel-button-modal{
+    background:#8388A4;
+    border:none;
+    border-radius:5px;
+    color:white;
+    cursor: pointer;
+}
+.delete-form-modal{
+    margin:0;
+}
+
+.delete-contact-submit-button{
+    margin-top: 30px;
+    padding: 15px 50px;
+    font-size: 20px;
+    border:none;
+    background:  #f05c6c;
+    border-radius:8px;
+    color:white;
 }

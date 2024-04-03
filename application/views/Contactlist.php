@@ -49,7 +49,7 @@
                         </div>
                     </div> -->
                 <?php 
-                    if($contacts){
+                    if(!empty($contacts)){
                         foreach($contacts as $contact){
                             //echo $record->contact_name. $record->contact_number . "<br>";
 
@@ -64,27 +64,26 @@
                                     </div>
                                 </a>
                                 <div class=\"end-content flex-center-box\">
-                                    <a href=\"\"><img src=\"".base_url('uploads/vertical-three.png')."\" alt=\"\"
+                                    <a href=\"".base_url("editcontact/".$contact->id)."\"><img src=\"".base_url('uploads/vertical-three.png')."\" alt=\"\"
                                     width=\"30px\"></a>
                                     <a href=\"\"><img src=\"".base_url('uploads/delete-icon.png')."\" alt=\"\"
                                     width=\"30px\"></a>
                                 </div>
                             </div>
                             ";
+                            echo "<p class=\"pagination-link-navigate\">".$links."</p>";
                         }
+                        
                     }
                     else{
                         echo"
                         <div class=\"flex-center-box\">
                             <p>No record founded.</p>
                         </div>
-                        
-                        
                         ";
                     }
 
                 ?>
-                <p class="pagination-link-navigate"><?php echo $links; ?></p>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@
                 </a>
             </div>
             <div class="flex-center-box welcome-text">
-                <p>Add new contact</p>
+                <p>Edit contact</p>
             </div>
             <!-- Succeed -->
             <?php 
@@ -32,7 +32,7 @@
                     "<div class=\"col-flex-center\">
                     <div class=\"alert-success\">
                         <img src=\"".base_url('uploads/success_icon.png')."\" alt=\"\" width=\"20px\">
-                        <p>Successfully added new contact</p>
+                        <p>Successfully update contact</p>
                     </div>
                 </div>";
                 }
@@ -47,7 +47,7 @@
                             <div class=\"alert-danger col-flex-start\">
                                 <div class=\"flex-center-box error-title\">
                                     <img src=\"" . base_url('uploads/cancel_icon.png') . "\" alt=\"\" width=\"20px\">
-                                    <p>Failed to add new Contact : </p>
+                                    <p>Failed to update contact : </p>
                                 </div>
 
                                 <ul class=\"col-flex-start\">";
@@ -73,6 +73,17 @@
                 </div>";
                 }
             ?>
+            <!-- validation sucess, database/model error, run this block of codes -->
+            <?php 
+                if($this->session->flashdata('no_change_found')){
+                    echo "<div class=\"col-flex-center\">
+                    <div class=\"alert-danger-2\">
+                        <img src=\" ". base_url('uploads/cancel_icon.png') ." \" alt=\"\" width=\"20px\">
+                        <p>No changes were made.</p>
+                    </div>
+                </div>";
+                }
+            ?>
             <!-- image file upload error, run this block of codes -->
             <?php 
                 if ($errors = $this->session->flashdata('image_file_error')) {
@@ -81,7 +92,7 @@
                             <div class=\"alert-danger col-flex-start\">
                                 <div class=\"flex-center-box error-title\">
                                     <img src=\"" . base_url('uploads/cancel_icon.png') . "\" alt=\"\" width=\"20px\">
-                                    <p>Failed to add new Contact : </p>
+                                    <p>Failed to update Contact : </p>
                                 </div>
 
                                 <ul class=\"col-flex-start\">";
@@ -98,24 +109,41 @@
             ?>
 
             <div class="col-flex-center">
-                <?php echo form_open_multipart('addcontact', array('class' => 'add-contact-form')); ?>
+                <?php echo form_open_multipart('editcontact/save_changes/'.$contact['id'], array('class' => 'edit-contact-form')); ?>
+
+
+                <div class="w-100 form-fieldset edit-contact-img-container">
+                    <img src="<?php echo base_url($contact['image_path']) ?>" alt="" class="edit-contact-img">
+                </div>
+                <input type=" text" value="<?php echo $contact['image_path'] ?>" name="original_img_path" hidden>
+
+
                 <div class="w-100 form-fieldset">
                     <h5 class="form-title">Contact name</h5>
-                    <input type="text" name="name" placeholder="John" class="w-100" />
+                    <input type="text" name="name" placeholder="John" class="w-100"
+                        value="<?php echo $contact['contact_name'] ?>" />
                 </div>
+
+
                 <div class="w-100 form-fieldset">
                     <h5 class="form-title">Contact number</h5>
-                    <input type="number" name="number" placeholder="0123456789" class="w-100" />
+                    <input type="number" name="number" placeholder="0123456789" class="w-100"
+                        value="<?php echo $contact['contact_number'] ?>" />
                 </div>
+
+
                 <div class="w-100 form-fieldset">
                     <h5 class="form-title">Upload new images (Optional)</h5>
                     <input type="file" name="image" accept="image/*" />
                     <p class="file-type-label">JPG, JPEG, and PNG file only (Max size 5MB)</p>
                 </div>
-                <input type=" text" value="<?php echo $userdata['id'] ?>" name="uid" hidden>
+
+                <!-- for form checking -->
+                <input type="text" value="<?php echo $userdata['id'] ?>" name="uid" hidden>
+                <input type="text" value="<?php echo $contact['id'] ?>" name="cid" hidden>
 
                 <div class="flex-center-box">
-                    <input type="submit" value="Create new contact" class="add-contact-submit-button" />
+                    <input type="submit" value="Save changes" class="edit-contact-submit-button" />
                 </div>
 
                 </form>
