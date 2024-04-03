@@ -18,4 +18,4 @@ How to run
 =================================
 
 1. Configure your database credentials in application/config/database.PHP
-2. You may start the program with url 'http://localhost/phone_book_system/'
+2. You may start the program with url 'http://localhost/phone-book-system/'
